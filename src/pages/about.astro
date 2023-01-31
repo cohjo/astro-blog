@@ -1,4 +1,17 @@
 ---
+import '../styles/global.css'
+import Navigation from '../components/Navigation.astro';
+import Footer from '../components/Footer.astro';
+const title = 'About Me'
+const identity = {
+  firstName: "Conor",
+  country: "United States",
+  occupation: "Software Engineer",
+  hobbies: ["coding", "trying out astro"],
+};
+const skills = ["Typescript", "React", "Astro"];
+const happy = true;
+const finished = false;
 ---
 
 <html lang="en">
@@ -7,16 +20,27 @@
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>About Me</title>
+		<title>{title}</title>
 	</head>
-	<body>
-    <a href="/">Home</a>
-    <a href="/about/">About</a>
-    <a href="/blog/">Blog</a>
-		<h1 class="font-bold text-3xl">About Me</h1>
-    <h2 class="font-medium text-xl">This is my first Astro App</h2>
-    <p class="text-m">This is cool</p>
-    <p class="text-m">Tailwind was so easy to integrate!</p>
-
+	<body class="space-y-2">
+    <Navigation />
+		<h1>{title}</h1>
+    <h2>This is my first Astro App</h2>
+    <p>Here are a few facts about me:</p>
+    <ul>
+      <li>My name is {identity.firstName}.</li>
+      <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+      {identity.hobbies.length >= 2 && 
+        <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+      } 
+    </ul>
+    <p>My skills are:</p>
+    <ul>
+      {skills.map((skill) => <li>{skill}</li>)}
+    </ul>
+    {happy && <p>I am happy to be learning Astro!</p>}
+    {finished && <p>I finished this tutorial!</p>}
+    <p>My goal is to finish this before my train ride to NYC ends.</p>
+    <Footer />
 	</body>
 </html>
