@@ -2,10 +2,27 @@
 @tailwind components;
 @tailwind utilities;
 
-h1 {
-  @apply text-3xl font-black;
+* {
+  box-sizing: 'border-box';
 }
 
-h2 {
-  @apply text-xl font-medium;
+@layer base {
+  h1 {
+    @apply text-3xl font-black;
+  }
+
+  h2 {
+    @apply text-xl font-medium;
+  }
+
+  a {
+    @apply text-lg font-medium hover:opacity-60 transition-all ease-in-out;
+  }
 }
+
+@layer utilities {
+  .active {
+    @apply text-blue-600;
+  }
+}
+

@@ -1,5 +1,10 @@
 ---
+const pathname = new URL(Astro.request.url).pathname;
+const currentPath = pathname.slice(1);
+
+const getClass = (path: string) => currentPath === path ? "active" : "";
+
 ---
-<a href="/">Home</a>
-<a href="/about/">About</a>
-<a href="/blog/">Blog</a>
+<a class={getClass("")} href="/">Home</a>
+<a class={getClass("about")} href="/about">About</a>
+<a class={getClass("blog")} href="/blog">Blog</a>
