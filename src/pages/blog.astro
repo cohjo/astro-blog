@@ -12,7 +12,7 @@ import Header from "../components/Header.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>My Astro Blog</title>
 	</head>
-	<body class="space-y-2">
+	<body>
 		<Header />
 		<h1>My Astro Blog</h1>
     <p>This is where I will post about my journey learning Astro.</p>
@@ -23,4 +23,7 @@ import Header from "../components/Header.astro";
     </ul>
     <Footer />
 	</body>
+	<script>
+		import "../scripts/menu"
+	</script>
 </html>
